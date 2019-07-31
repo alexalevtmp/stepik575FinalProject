@@ -11,7 +11,8 @@ class LoginPage(BasePage):
     def should_be_login_url(self):
         # реализуйте проверку на корректный url адрес
         # assert self.url.find("/login/") != -1, "Login url is not presented"
-        assert self.browser.current_url.find("/login/") != -1, "Login url is not presented"
+            # assert self.is_element_present(*LoginPageLocators.LOGIN_LINK), "Login link is not presented"
+        assert self.browser.current_url.find("login") != -1, "Login url is not presented"
         # current_url
         # Gets the URL of the current page.
         # Usage:	driver.current_url
