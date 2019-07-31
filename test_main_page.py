@@ -1,25 +1,53 @@
 from .pages.main_page import MainPage
-
 from .pages.login_page import LoginPage
 
-link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209?promo=midsummer"
-link_login = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
 
+link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209?promo=midsummer"
+
+# link = "http://selenium1py.pythonanywhere.com/"
+
+# link_login = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
+
+
+# def test_guest_can_go_to_login_page(browser):
+#     page = MainPage(browser, link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес 
+#     page.open()                      # открываем страницу
+#     page.go_to_login_page()          # выполняем метод страницы - переходим на страницу логина
+
+# def test_guest_should_see_login_link(browser):
+#     page = MainPage(browser, link)
+#     page.open()
+#     page.should_be_login_link()
+
+
+
+# # Второй подход: переход происходит неявно, страницу инициализируем в теле теста: 
+# # 1. Закомментируйте строку с возвращаемым значением 
+
+def go_to_login_page(self):
+    link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
+    link.click()
+    # return LoginPage(browser=self.browser, url=self.browser.current_url) 
+
+# # 2. Инициализируем LoginPage в теле теста (не забудьте импортировать в файл нужный класс): 
+
+# # from .pages.login_page import LoginPage
 
 def test_guest_can_go_to_login_page(browser):
-    page = MainPage(browser, link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес 
-    page.open()                      # открываем страницу
-    page.go_to_login_page()          # выполняем метод страницы - переходим на страницу логина
-
-def test_guest_should_see_login_link(browser):
+    link = "http://selenium1py.pythonanywhere.com"
     page = MainPage(browser, link)
     page.open()
-    page.should_be_login_link()
+    page.go_to_login_page()
+    login_page = LoginPage(browser, browser.current_url)
+    login_page.should_be_login_page()
 
-def test_should_be_login_page(browser):
-    page = LoginPage(browser, link_login)
-    page.open()
-    page.should_be_login_page()
+
+
+## from prev step!
+# def test_should_be_login_page(browser):
+#     page = LoginPage(browser, link_login)
+#     page.open()
+#     page.should_be_login_page()
 
 
 # "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209?promo=midsummer"
