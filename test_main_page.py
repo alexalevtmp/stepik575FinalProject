@@ -1,8 +1,11 @@
 from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
 
+#  link for 4.3-2
+# link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209?promo=midsummer"
 
-link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209?promo=midsummer"
+#  link for 4.3-3
+link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
 
 # link = "http://selenium1py.pythonanywhere.com/"
 
